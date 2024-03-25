@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>지란지교시큐리티</title>
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="../css/fonts.css">
+    <style>
+:root {
+    --mainColor: #fc7e00;
+}
+body {
+    font-family: 'Noto Sans KR','Pretendard', 'Malgun Gothic', '맑은 고딕', '돋움', 'AppleGothic',sans-serif;
+    font-size: 16px;
+    color: #555;
+}
+.hide_txt {
+    display: block; width: 1px; height: 1px; overflow: hidden;
+}
+/* Header */
+#header {
+    display: flex; justify-content: center; align-items: center; 
+    position: relative;
+    height: 90px; padding: 0 5%; 
+    box-shadow:0 2px 6px 0 rgb(0 0 0 / 10%);
+}
+#header h1{position: absolute; left: 5%; border: 1px solid #000;}
+#header h1 a{
+    display: block; width: 175px;height: 22px; 
+    background: url(../img/common/img_ci_jiransecurity@2x.png) no-repeat;
+    background-size: contain;
+}
+#header #gnb {display: flex; }
+#header #gnb>li{margin: 0 40px;}
+#header #gnb>li>a {
+    display: block; line-height: 90px;
+    font-size: 18px; font-weight: 700; color: #222;
+}
+#header #gnb>li>a::after{
+    content: ""; display: block;
+    height: 2px; 
+}
+#header #gnb>li>a:hover::after {
+    background: var(--mainColor);
+}
+#header #gnb>li>a:hover{
+    color: var(--mainColor);
+}
+#header .gnb_corp {
+    position: absolute; right:calc(5% + 50px); bottom: 5; 
+    margin: 0; padding: 0;
+}
+#header #gnb>li.gnb_corp>a{ font-size: 16px; font-weight: 400; margin: 0 20px; }
+#header #gnb>li.gnb_corp>a::after{
+    display: none; background: none;
+}
+#header #gnb>li.gnb_corp::before{
+    content: ""; display: block;  
+    position: absolute; right: 7px; bottom: 36px;
+    width: 1px; height: 14px; background: #777;
+}
+#header .util { position: absolute; right:5%; border: 1px solid #000;}
+
+#header .btn_search_open {
+    width: 36px; height: 36px;
+    background: url(/img/common/ico-gnb-search.png);
+}
+#header .btn_allmenu_open {
+    width: 36px;height: 36px;
+    background: url(/img/common/ico-gnb-allmenu.png);
+}
+#gnb .dep2,#gnb .dep2_wrap, .search_wrap, .allmenu_wrap {display: none;}
+    /* 
+    nav => flex item (정중앙 정렬: 외동이어야 가능) h1 형, util 동생=> absolute 
+    nav를 제외한 나머지 형제요소를 position 
+    */
+    </style>
+</head>
+<body>
+    <div id="wrap">
+        <header id="header">
+            <h1><a href="#"><span class="hide_txt">지란지교시큐리티</span></a></h1>
+            <nav>
+                <ul id="gnb">
+                    <li class="gnb_product">
+                        <a href="#">제품소개</a>
+                        <div class="dep2_wrap">
+                            <ul class="dep2">
+                                <li>
+                                    <a href="#">악성코드 위협대응</a>
+                                    <ul class="dep3">
+                                        <li><a href="#">새니톡스</a></li>
+                                        <li><a href="#">머드픽스</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a href="#">메일 보안</a>
+                                    <ul class="dep3">
+                                        <li><a href="#">스팸스나이퍼</a></li>
+                                        <li><a href="#">메일스크린</a></li>
+                                        <li><a href="#">제이볼트 플러스</a></li>
+                                        <li><a href="#">클라우드 메일게이트</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a href="#">문서 보안</a>
+                                    <ul class="dep3">
+                                        <li><a href="#">다큐원</a></li>
+                                        <li><a href="#">오피스하드 VEX</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a href="#">모바일 보안</a>
+                                    <ul class="dep3">
+                                        <li><a href="#">모바일키퍼</a></li>
+                                        <li><a href="#">메일세이퍼</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a href="#">블록 체인</a>
+                                    <ul class="dep3">
+                                        <li><a href="#">제이볼트 체인</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a href="#">문서검색/문서필터</a>
+                                    <ul class="dep3">
+                                        <li><a href="#">다큐엑스</a></li>
+                                        <li><a href="#">딥아이알</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                            <div class="find_solution_box"><a href="#">솔루션찾기 <img src="img/common/ico-search-solution.png" alt=""></a></div>
+                        </div>
+                    </li>
+                    <li>
+                        <a href="#">보안센터</a>
+                        <ul class="dep2">
+                            <li><a href="#">스팸메일 동향 분석</a></li>
+                            <li><a href="#">보안 라이브러리</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#">홍보센터</a>
+                        <ul class="dep2">
+                            <li><a href="#">뉴스</a></li>
+                            <li><a href="#">이벤트</a></li>
+                            <li><a href="#">블로그</a></li>
+                            <li><a href="#">홍보영상</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#">투자정보</a>
+                        <ul class="dep2">
+                            <li><a href="#">주가정보</a></li>
+                            <li><a href="#">공시정보</a></li>
+                            <li><a href="#">재무정보</a></li>
+                            <li><a href="#">IR 자료</a></li>
+                        </ul>
+                    </li>
+                    <li class="gnb_corp">
+                        <a href="#">회사소개</a>
+                        <ul class="dep2">
+                            <li><a href="#">회사정보</a></li>
+                            <li><a href="#">걸어온 길</a></li>
+                            <li><a href="#">인재채용</a></li>
+                            <li><a href="#">문의</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <ul class="dep2">
+                    <li><a href="#"></a></li>
+                </ul>
+            </nav>
+            <div class="util">
+                <button type="button" class="btn_search_open"><span class="hide_txt">검색창 열기</span></button>
+                <button type="button" class="btn_allmenu_open"><span class="hide_txt">전체메뉴 보기</span></button>
+            </div>
+            <div class="search_wrap"><!--검색폼 :배경-->
+                <form action="">
+                    <fieldset>
+                        <legend class="hide_txt">검색어 입력창</legend>
+                        <input type="text" placeholder="검색어를 입력하세요">
+                        <button type="reset" class="txt_clear"><span class="hide_txt">검색어 삭제</span>
+                        </button>
+                        <button type="submit"><span class="hide_txt">검색하기</span></button>
+                    </fieldset>
+                    <div class="quick_search">
+                        <span>Quick Links</span>
+                        <a href="#">문서</a>
+                        <a href="#">AI</a>
+                        <a href="#">파싱</a>
+                        <a href="#">악성 문서</a>
+                        <a href="#">이메일 보안</a>
+                    </div>
+                </form>
+                <button type="button" class="btn_search_close"> <span class="hide_txt">검색창 닫기</span></button>
+            </div>
+            <div class="allmenu_wrap">
+                <!-- 전체메뉴 -->
+                <ul class="allmenu_list">
+                    <li class="allmenu_product">
+                        <a href="#">제품소개</a>
+                        <ul class="dep2">
+                            <li>
+                                <a href="#">악성코드 위협대응</a>
+                                <ul class="dep3">
+                                    <li><a href="#">새니톡스</a></li>
+                                    <li><a href="#">머드픽스</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="#">메일 보안</a>
+                                <ul class="dep3">
+                                    <li><a href="#">스팸스나이퍼</a></li>
+                                    <li><a href="#">메일스크린</a></li>
+                                    <li><a href="#">제이볼트 플러스</a></li>
+                                    <li><a href="#">클라우드 메일게이트</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="#">문서 보안</a>
+                                <ul class="dep3">
+                                    <li><a href="#">다큐원</a></li>
+                                    <li><a href="#">오피스하드 VEX</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="#">모바일 보안</a>
+                                <ul class="dep3">
+                                    <li><a href="#">모바일키퍼</a></li>
+                                    <li><a href="#">메일세이퍼</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="#">블록 체인</a>
+                                <ul class="dep3">
+                                    <li><a href="#">제이볼트 체인</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="#">문서검색/문서필터</a>
+                                <ul class="dep3">
+                                    <li><a href="#">다큐엑스</a></li>
+                                    <li><a href="#">딥아이알</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#">보안센터</a>
+                        <ul class="dep2">
+                            <li><a href="#">스팸메일 동향 분석</a></li>
+                            <li><a href="#">보안 라이브러리</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#">홍보센터</a>
+                        <ul class="dep2">
+                            <li><a href="#">뉴스</a></li>
+                            <li><a href="#">이벤트</a></li>
+                            <li><a href="#">블로그</a></li>
+                            <li><a href="#">홍보영상</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#">투자정보</a>
+                        <ul class="dep2">
+                            <li><a href="#">주가정보</a></li>
+                            <li><a href="#">공시정보</a></li>
+                            <li><a href="#">재무정보</a></li>
+                            <li><a href="#">IR 자료</a></li>
+                        </ul>
+                    </li>
+                    <li class="allmenu_corp">
+                        <a href="#">회사소개</a>
+                        <ul class="dep2">
+                            <li><a href="#">회사정보</a></li>
+                            <li><a href="#">걸어온 길</a></li>
+                            <li><a href="#">인재채용</a></li>
+                            <li><a href="#">문의</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <div class="allmenu_footer">
+                    <a href="#">개인정보처리방침</a>
+                    <a href="#" target="_blank" class="icon_link">윤리경영 <img src="img/common/ico-link@2x.png" alt="새창에서열기"></a>
+                </div>
+                <div class="allmenu_solution">
+                    <div class="find_solution">
+                        <strong>기업에 맞는 솔루션 찾기</strong>
+                        <p>고민하고 있는 보안 문제 해결에 최적화된
+                            솔루션을 만나보세요</p>
+                        <a href="#">바로가기 <img src="img/common/ico_arrow.png" alt=""></a>
+                    </div>
+                    <div class="corp_info">
+                        <!-- background 이미지로 쓰기 -->
+                            <span>T.031-606-2199</span>
+                            <a href="#" target="_blank"><img src="img/common/ico_allmenu_facebook.png" alt="페이스북 사이트로 이동"></a>
+                            <a href="#" target="_blank"><img src="img/common/ico_allmenu_youtube.png" alt="유튜브 사이트로 이동"></a>
+                            <a href="#" target="_blank"><img src="img/common/ico_allmenu_blog.png" alt="블로그 사이트로 이동"></a>
+                            <a href="#" target="_blank"><img src="img/common/ico_allmenu_naverpost.png" alt="네이버포스트 사이트로 이동"></a>
+                        </div>
+                </div>
+            </div>
+        </header>
+    </div>
+</body>
+</html>
+<!-- 
+    "지란지교 시큐리티"
+1.header+main+footer 구분
+2. 각 영역에 행 확인
+-header (1행)
+-footer (1행)
+-main (5행)
+3. 각 영역의 행마다 conent_container (컨텐츠들을 포함하는) 생성
+행마다 넣는걸 추천
+예) footer 1행에는 각각 2개 content_container가 필요함
+4. 각 content-container 안에 가로 방향(footer:세로방향)으로 분리되는 영역을 확인
+
+* 요소의 마크업
+    - headr부터 전체 구조에 따라 하나씩 작성
+    * 웹 접근성에 따른 스킵네비게이션 => 맨 처음 작성
+    - 팝업 섹션 => wrap 이전에 작성
+-->

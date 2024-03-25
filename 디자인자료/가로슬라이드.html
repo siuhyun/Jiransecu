@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>가로슬라이드</title>
+<style>
+    * {margin: 0; padding: 0; list-style: none;}
+</style>
+</head>
+<body>
+<style>
+    .ex1 {padding: 70px 0;}
+    .ex1 .inner {
+        width: 800px; margin: auto; overflow: hidden;
+        border: 8px solid green;
+    }
+    .ex1 ul {
+        outline: 3px solid red;
+        display: flex;  flex-direction: row;  flex-wrap: nowrap;
+    }
+    .ex1 li {
+        flex-shrink: 0;
+        width: 50%;height: 200px;text-align: center;
+        box-sizing: border-box;
+        border: 1px solid #000;line-height: 200px;
+        background: silver;font-size: 60px;
+    }
+</style>
+<div class="ex1">
+    <div class="inner">
+    <ul>
+        <li>box - 1</li>
+        <li>box - 2</li>
+        <li>box - 3</li>
+        <li>box - 4</li>
+        <li>box - 5</li>
+    </ul>
+    </div>
+</div>
+<style>
+    .ex2 {padding: 70px 0;}
+    .ex2 .inner {
+        width: 1280px; margin: auto; overflow: hidden;
+        border: 3px solid green;
+    }
+    .ex2 ul {
+        display: flex; 
+    }
+    .ex2 li {
+    flex-shrink: 0;
+    width: 400px;height: 200px;text-align: center;
+    margin-right: 40px;
+    border: 1px solid #000;line-height: 200px;
+    background: silver;font-size: 60px;
+    }
+</style>
+<div class="ex2">
+    <div class="inner">
+    <ul>
+        <li>box - 1</li>
+        <li>box - 2</li>
+        <li>box - 3</li>
+        <li>box - 4</li>
+        <li>box - 5</li>
+    </ul>
+    </div>
+</div>
+<style>
+    .slider_wrap{display: flex; }
+    .slide{ 
+        flex-shrink: 0; width: 50vw;
+        height: 500px; display: flex; justify-content: center; align-items: center; font-size: 70px; color: #fff;
+    }
+    .slide1 {background: pink;}
+    .slide2 {background: yellowgreen;}
+    .slide3 {background: orange;}
+    .slide4 {background: slateblue;}
+</style>
+<div class="ex3">
+    <div class="inner">
+        <div class="slider_wrap">
+            <div class="slide slide1">Slide 1</div>
+            <div class="slide slide2">Slide 2</div>
+            <div class="slide slide3">Slide 3</div>
+            <div class="slide slide4">Slide 4</div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

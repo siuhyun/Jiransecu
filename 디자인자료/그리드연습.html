@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CSS Grid Layout</title>
+<link rel="stylesheet" href="../css/reset.css">
+<style>
+.ex1 {
+    display: grid; gap: 20px 40px; 
+    /* width: 600px;    */
+    /* width: 500px;
+    grid-template-columns:1fr 1fr 1fr;
+    margin: 50px;padding: 5px; */
+    grid-template-columns:repeat(3,1fr) 200px;
+    /* grid-template-rows: 200px 300px; */
+    /* grid-template-rows: repeat(3,200px) 300px; */
+    grid-auto-rows: 150px; gap: 1em 40px;
+    margin: 50px; padding: 15px;
+    background: slateblue;
+}
+.ex1 li {  
+    /* width: 150px; */
+    line-height: 80px;
+    background: #dedede;border: 1px solid #000;
+    text-align: center;font-size: 24px;
+}
+.ex1 li:nth-child(1) {
+    grid-column-start: 1;
+    grid-column-end: 3;
+    background: palevioletred;
+}
+.ex1 li:nth-child(5) {
+    grid-column-start: 2;
+    grid-column-end: -1;
+    background: yellowgreen;
+}
+.ex1 li:nth-child(4) {
+    grid-row-start: 2; 
+    grid-row-end: 4;
+    background: salmon;
+}
+.ex1 li:nth-child(7) {
+    grid-row-start: 3;
+    grid-row-end: 5;
+    background: skyblue;
+}
+.ex2 {
+    display: grid; margin: 50px; padding: 20px;
+    gap: 20px;
+    grid-template-columns: repeat(5,1fr);
+    /* grid-auto-rows: 150px; */
+    grid-auto-rows: minmax(150px, auto);
+    background: orange;
+}
+.ex2 li {
+    display: flex; justify-content: center;
+    align-items: center; font-size: 40px;  
+    background: #fff;
+}
+.ex2 li:nth-child(1){
+    /* grid-row-start: 1;
+    grid-row-end: 3; */
+    grid-row: 1 / 3;
+}
+.ex2 li:nth-child(2) {
+    /* column 방향으로 3칸 크기로 만들기 */
+    /* grid-column: 2 / -1; */
+    grid-column: 2 / 5;
+}
+.ex2 li:nth-child(4) {
+    grid-column: 2 / span 2;
+}
+.container {
+    display: grid; gap: 15px;
+    padding: 15px; margin: 80px;
+    background: green;
+}
+.cell {
+    display: flex; justify-content: center; align-items: center;
+    font-size: 30px;
+    background: #fff;
+}
+.ex3 {
+    grid-template-columns: repeat(5,1fr);
+    grid-auto-rows: 100px;
+}
+.ex3 .item3 {
+    /* grid-row-start / grid-column-start / grid- row-end / column-end */
+    /* grid-area: 1 / 3 / 3 / 5; */
+    grid-area: 2 / 1 / 4 / 3;
+}
+.ex3 .item14 {
+    grid-area: 1 / 3 / 5 / 5;
+}
+.ex4 {
+    height: 350px;
+    grid-template-columns: repeat(3,100px);
+    grid-auto-rows: 100px; 
+    justify-content: space-between;
+    align-content: space-between;
+    /*start, end, center, space-around, space_between, space-evenly*/
+}
+.ex5 {
+    grid-auto-rows: 100px; /*그리드의 셀 위치에 이름주기*/
+    grid-template-areas: 
+    'a a a' 
+    'b c c' 
+    'b d d'
+    'b . .';
+    background: gray; 
+}
+.ex5 .item1 {grid-area: a; background: pink;}
+.ex5 .item2 {grid-area: b; background: gold;}
+.ex5 .item3 {grid-area: c; background: yellowgreen}
+.ex6 {
+    width: 600px; height: 600px;
+    background: gray;
+    grid-template-areas: 
+    'a a b'
+    'c . b'
+    'c d d';
+}
+.ex6 .cell {
+    width: 100%; height: 100%;
+}
+.ex6 .item1 {
+    grid-area: a; background: pink;
+}
+.ex6 .item2 {
+    grid-area: b; background: lavender;
+}
+.ex6 .item3 {grid-area: c; background: lightblue;}
+.ex6 .item5 {grid-area: d; background: violet; }
+.ex7 {
+    grid-auto-rows: 100px;
+    grid-template-columns: 200px auto;
+    grid-template-areas: 
+    'header header header'
+    'menu main right'
+    'menu footer footer'
+}
+.ex7 .item1 {grid-area: header;}
+.ex7 .item2 {grid-area: menu;}
+.ex7 .item3 {grid-area: main;}
+.ex7 .item4 {grid-area: right;}
+.ex7 .item5 {grid-area: footer;}
+</style>
+</head>
+<body>
+<ul class="ex1">
+<li>1</li>
+<li>2</li>
+<li>3</li>
+<li>4</li>
+<li>5</li>
+<li>6</li>
+<li>7</li>
+<li>8</li>
+<li>9</li>
+<li>10</li>
+</ul>
+<ul class="ex2">
+<li>1</li>
+<li>2</li>
+<li>3</li>
+<li>4</li>
+<li>5</li>
+<li>6</li>
+<li>7</li>
+<li>8</li>
+<li>9</li>
+<li>10</li>
+</ul>
+<!-- .container.ex3>.cell.item$*15 -->
+<div class="container ex3">
+    <div class="cell item1">1</div>
+    <div class="cell item2">2</div>
+    <div class="cell item3">3</div>
+    <div class="cell item4">4</div>
+    <div class="cell item5">5</div>
+    <div class="cell item6">6</div>
+    <div class="cell item7">7</div>
+    <div class="cell item8">8</div>
+    <div class="cell item9">9</div>
+    <div class="cell item10">10</div>
+    <div class="cell item11">11</div>
+    <div class="cell item12">12</div>
+    <div class="cell item13">13</div>
+    <div class="cell item14">14</div>
+    <div class="cell item15">15</div>
+</div>
+<!-- .container.ex4>.cell.item${$}*6 -->
+<div class="container ex4">
+    <div class="cell item1">1</div>
+    <div class="cell item2">2</div>
+    <div class="cell item3">3</div>
+    <div class="cell item4">4</div>
+    <div class="cell item5">5</div>
+    <div class="cell item6">6</div>
+</div>
+<div class="container ex5">
+    <div class="cell item1">1</div>
+    <div class="cell item2">2</div>
+    <div class="cell item3">3</div>
+    <div class="cell item4">4</div>
+    <div class="cell item5">5</div>
+    <div class="cell item6">6</div>
+    <div class="cell item7">7</div>
+    <div class="cell item8">8</div>
+    <div class="cell item9">9</div>
+    <div class="cell item10">10</div>
+</div>
+<div class="container ex6">
+    <div class="cell item1">1</div>
+    <div class="cell item2">2</div>
+    <div class="cell item3">3</div>
+    <div class="cell item4">4</div>
+    <div class="cell item5">5</div>
+</div>
+<div class="container ex7">
+    <div class="cell item1">Header</div>
+    <div class="cell item2">Menu</div>
+    <div class="cell item3">Main</div>
+    <div class="cell item4">Right</div>
+    <div class="cell item5">Footer</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>반응형 연습1</title>
+    <style>
+        :root {font-size: 20px;}
+        /* 
+            단위(px,em, %, vm/vh)
+            - px : 절대값, 변하지 않는 값(키 :180cm)
+            - % (백분율, 축소 <100% <확대)
+                : 상대값, 변하는 값 (키: 상위 10%)
+                : 일반적으로 부모 기준, px 기준, 면접(width 와 height)
+            -em (배수, 축소 < 1em < 확대)    
+                : 상대값
+                : 부모 요소에 적용된 글자 크기 기준
+                : rem => root에 적용된 글자 크기 기준으로 부모 크기는 무시됨
+            -vw (가로) / vh (세로)
+            : 뷰포트(view-port), 스크린 , 디바이스 화면, 브라우저 크기, 
+
+        */
+        /* 공통 스타일 */
+        body{margin: 0;}
+        .container{display: flex; flex-flow: row wrap; justify-content: space-between; width: 94%; height: calc(100vh - 90px); margin: auto; border: 5px solid red; box-sizing: border-box;}
+        header {padding: 0px 3%; display: flex; justify-content: space-between; margin-bottom: 90px; background: #fff;}
+        h1{width: 140px; height: 40px; margin: 0; border: 1px solid #000;}
+        nav{display: none; width: 400px; height: 40px; background: #dedede;border: 1px solid purple;}
+        .util {width: 140px; height: 40px; border: 1px solid gold; background: #dedede;}
+        .section1 .box{width: calc(50% - 15px); height: 200px; margin: 20px 0; background: #fff;} /*2단일때 width*/
+        .section2 .container{flex-direction: column;}
+        .section2 .box1{height: 200px; background: pink;}
+        .section2 .box2{height: 200px;background: skyblue;}
+
+
+        /* PC :1280이상 :달라지는 내용만 여기에*/
+        @media (min-width:1280px){
+            body{background: yellowgreen;}
+            .container{width: 1150px;}
+            header {padding: 0px 6%;}
+            nav{display: block;}
+            .section1 .box{width: calc(25% - 23px);} /*1단일때*/
+            .section2 .container{flex-direction: row;}
+            .section2 .box1 {width: 40%;}
+            .section2 .box2 {width: 60%;}
+        }
+        /* tab :520 초과 ~ 1280 미만 / 521이상 ~ 1279이하 */
+        @media (min-width:521px) and (max-width:1279px ){
+        body{background: lightblue;}
+        
+        }
+        /* mob :520px 이하*/
+        @media (max-width:520px) {
+            body{background: orange;}
+            
+        }
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <header class="header">
+            <h1></h1>
+            <nav></nav>
+            <div class="util"></div>
+        </header>
+        <main class="index">
+            <style>
+                article {padding: 20px; background: #fff; font-size: 20px; text-align: center;}
+                article * {
+                    display: block; margin: 20px; padding: 20px; 
+                }
+                article .container {display: block; height: auto;}
+                article .container p{font-size: 2em; /*20의 두배:40*/}
+                article .container p strong{font-size: 0.5em; /*40의 0.5:20*/ border: 1px solid gold;}
+                article .container p strong span{font-size: 2em; /*20의 두배: 40*/}
+                /* 부모에게 적용된 폰트사이즈로 적용됨 */
+            </style>
+            <article>
+                article 자손, div태그 형인 텍스트
+                <div class="container">
+                    div 자손, p 태그 형인 텍스트 
+                    <p>
+                        p 태그 자손, strong 형인 텍스트
+                        <strong>
+                            strong 자손,  span 형인 텍스트
+                            <span>
+                                span 태그 자손 텍스트
+                            </span>
+                        </strong>
+                    </p>
+                </div>
+            </article>
+            <style>
+                aside {background: #dedede; font-size: 20px;}
+                aside, aside * {
+                    display: block;
+                    text-align: center; padding: 40px;
+                }
+                aside .container {display: block; height: auto; font-size: 3rem;/*60px*/}
+                aside .container p { /*2em =>120px*/
+                    font-size: 2rem;/*40px*/}
+                aside .container p strong {font-size: 1rem;/*20px*/}
+                aside .container p strong span {font-size: 2rem;/*40px*/}
+            </style>
+            <aside>
+                article 자손, div태그 형인 텍스트
+                <div class="container">
+                    div 자손, p 태그 형인 텍스트 
+                    <p>
+                        p 태그 자손, strong 형인 텍스트
+                        <strong>
+                            strong 자손,  span 형인 텍스트
+                            <span>
+                                span 태그 자손 텍스트
+                            </span>
+                        </strong>
+                    </p>
+                </div>
+            </aside>
+            <section class="section1">
+                <div class="container">
+                    <div class="box">box1</div>
+                    <div class="box">box2</div>
+                    <div class="box">box3</div>
+                    <div class="box">box4</div>
+                </div>
+            </section>
+            <section class="section2">
+                <div class="container">
+                    <div class="box1">box1</div>
+                    <div class="box2">video</div>
+                </div>
+            </section>
+        </main>
+        <footer class="footer"></footer>
+    </div>
+</body>
+</html>
